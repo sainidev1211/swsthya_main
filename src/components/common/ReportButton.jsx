@@ -63,8 +63,8 @@ export default function ReportButton() {
 
     return (
         <>
-            {/* Very small, discreet floating button - moved to right to avoid sidebar overlap */}
-            <div className="fixed bottom-4 right-4 z-[9999] opacity-50 hover:opacity-100 transition-opacity">
+            {/* Very small, discreet floating button - hidden on mobile/tablet, visible on desktop */}
+            <div className="hidden lg:block fixed bottom-4 right-4 z-[9999] opacity-50 hover:opacity-100 transition-opacity">
                 <button
                     onClick={() => setIsOpen(true)}
                     className="text-[10px] text-gray-500 hover:text-gray-700 flex items-center gap-1 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-gray-200 shadow-sm font-medium"
