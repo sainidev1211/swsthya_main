@@ -1,0 +1,66 @@
+{
+    "Aspirin": [
+        {
+            "interacts_with": "Warfarin",
+            "risk": "High bleeding risk"
+        },
+        {
+            "interacts_with": "Ibuprofen",
+            "risk": "Increased risk of gastrointestinal bleeding"
+        }
+    ],
+    "Warfarin": [
+        {
+            "interacts_with": "Aspirin",
+            "risk": "High bleeding risk"
+        },
+        {
+            "interacts_with": "Vitamin K",
+            "risk": "Vitamin K counteracts the anticoagulant effect of Warfarin"
+        }
+    ],
+    "Paracetamol": [
+        {
+            "interacts_with": "Alcohol",
+            "risk": "Severe liver damage"
+        }
+    ],
+    "Ibuprofen": [
+        {
+            "interacts_with": "Aspirin",
+            "risk": "Increased risk of gastrointestinal bleeding"
+        },
+        {
+            "interacts_with": "Lisinopril",
+            "risk": "Decreases the blood pressure lowering effect of Lisinopril"
+        }
+    ],
+    "Lisinopril": [
+        {
+            "interacts_with": "Ibuprofen",
+            "risk": "Decreases the blood pressure lowering effect"
+        },
+        {
+            "interacts_with": "Potassium Supplements",
+            "risk": "High risk of hyperkalemia (too much potassium in blood)"
+        }
+    ],
+    "Pantoprazole": [
+        {
+            "interacts_with": "Ketoconazole",
+            "risk": "Decreases absorption and effectiveness of Ketoconazole"
+        }
+    ],
+    "Metformin": [
+        {
+            "interacts_with": "Iodinated Contrast",
+            "risk": "Risk of lactic acidosis. Should be temporarily discontinued before imaging."
+        }
+    ],
+    "Codeine": [
+        {
+            "interacts_with": "Alcohol",
+            "risk": "Severe respiratory depression and excessive drowsiness"
+        }
+    ]
+}

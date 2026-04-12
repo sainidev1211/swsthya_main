@@ -1,0 +1,5 @@
+
+import { Toaster } from 'react-hot-toast';
+
+// ... (in App component, inside providers)
+// <Toaster position="bottom-center" />
