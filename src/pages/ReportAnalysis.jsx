@@ -6,6 +6,7 @@ import FileUpload from '../components/ui/FileUpload';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { analyzeReportWithAI, extractTextFromImage, cleanMedicalText } from '../services/aiService';
+import { API_BASE_URL } from '../api/config';
 
 import { useAuth } from '../contexts/AuthContext';
 import { useMedical } from '../contexts/MedicalContext';
@@ -26,7 +27,7 @@ export default function ReportAnalysis() {
         setResult(null);
         setStatus('Processing request...');
 
-        const fileUrl = `http://localhost:5001${response.file.path}`;
+        const fileUrl = `${API_BASE_URL.replace('/api', '')}${response.file.path}`;
 
         try {
             // Step 1: OCR

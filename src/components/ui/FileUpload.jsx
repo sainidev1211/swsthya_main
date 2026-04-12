@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiUploadCloud, FiX, FiFile, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import { API_BASE_URL } from '../../api/config';
 
 const FileUpload = ({ onUploadSuccess, label = "Upload File", accept = "image/*,application/pdf", maxSizeMB = 5 }) => {
     const [file, setFile] = useState(null);
@@ -67,7 +68,7 @@ const FileUpload = ({ onUploadSuccess, label = "Upload File", accept = "image/*,
 
         try {
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:5001/api/upload', true);
+            xhr.open('POST', `${API_BASE_URL}/upload`, true);
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {
