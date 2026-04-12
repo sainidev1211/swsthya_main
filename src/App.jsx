@@ -36,6 +36,7 @@ import SymptomBodyMap from './pages/SymptomBodyMap';
 import TestUpload from './pages/TestUpload';
 import Prescriptions from './pages/Prescriptions';
 import MyAppointments from './pages/MyAppointments';
+import ClinicalChat from './pages/ClinicalChat';
 
 import RequireAuth from './components/layout/RequireAuth';
 
@@ -75,6 +76,7 @@ function AppRoutes() {
             <Route path="/settings" element={<Feedback />} />
             <Route path="/prescriptions" element={<Prescriptions />} />
             <Route path="/my-appointments" element={<MyAppointments />} />
+            <Route path="/clinical-chat" element={<ClinicalChat />} />
           </Route>
 
           {/* Redirect unknown routes to home */}

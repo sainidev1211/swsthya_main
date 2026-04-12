@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Search, MapPin, ExternalLink, ShieldCheck, Stethoscope, AlertCircle, Sparkles, Calendar, Star, Award, X, User, Plus } from 'lucide-react';
+import { Search, MapPin, ExternalLink, ShieldCheck, Stethoscope, AlertCircle, Sparkles, Calendar, Star, Award, X, User, Plus, MessageSquare, Clock } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
@@ -222,6 +222,10 @@ export default function Doctors() {
         }
     };
 
+    const handleMessageDoctor = (doctor) => {
+        navigate('/clinical-chat', { state: { doctor } });
+    };
+
     const getConnectionStatus = (docId) => {
         const conn = userConnections.find(c => c.doctorId?._id === docId || c.doctorId === docId);
         return conn ? conn.status : null;
@@ -398,6 +402,14 @@ export default function Doctors() {
                                     )}
                                     {getConnectionStatus(doc._id) === 'Accepted' ? 'Connected' : getConnectionStatus(doc._id) === 'Pending' ? 'Requested' : 'Connect'}
                                 </button>
+                                {getConnectionStatus(doc._id) === 'Accepted' && (
+                                    <button
+                                        onClick={() => handleMessageDoctor(doc)}
+                                        className="w-12 h-12 bg-white border-2 border-medical-100 text-medical-600 rounded-2xl flex items-center justify-center hover:bg-medical-50 transition-all shadow-sm"
+                                    >
+                                        <MessageSquare className="w-5 h-5" />
+                                    </button>
+                                )}
                                 <button
                                     onClick={() => handleBookAppointment(doc)}
                                     className={`flex-1 bg-gradient-to-r ${getSpecColor(doc.specialization)} text-white py-3.5 rounded-2xl font-black uppercase tracking-wider text-[10px] shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2`}
