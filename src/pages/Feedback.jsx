@@ -23,20 +23,24 @@ export default function Feedback() {
         setSubmitted(true); // Show loading/submitting state if needed, or success immediately as per UI design
 
         try {
+            const payload = {
+                userId: user?.id || 'u_web_user',
+                userEmail: user?.email || 'user@example.com',
+                rating: rating || 1, // Ensure at least 1 star if text is provided
+                comment: feedback
+            };
+
+            console.log("[Feedback] Submitting:", payload);
+
             const response = await fetch(`${API_BASE_URL}/admin/feedback`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    userId: user?.id || 'u_web_user',
-                    userEmail: user?.email || 'user@example.com',
-                    rating,
-                    comment: feedback
-                })
+                body: JSON.stringify(payload)
             });
 
             if (!response.ok) {
                 const errorText = await response.text();
-                console.error("Feedback API Error:", errorText);
+                console.error("Feedback API Error Detail:", errorText);
                 throw new Error(`Submission failed: ${response.status}`);
             }
 
